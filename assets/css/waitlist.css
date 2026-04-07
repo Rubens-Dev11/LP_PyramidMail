@@ -1,0 +1,169 @@
+/* ══════════════════════════════════════
+   WAITLIST / CTA SECTION
+══════════════════════════════════════ */
+.waitlist-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background: var(--pm-bg);
+  border-top: 1px solid rgba(0,135,202,0.15);
+  border-bottom: 1px solid rgba(0,135,202,0.15);
+}
+
+#waitlistCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.waitlist-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.waitlist-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.waitlist-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.waitlist-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--pm-dark);
+  margin: 0;
+}
+
+.waitlist-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5a6a7e;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--pm-white);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,135,202,0.12);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--pm-dark);
+  transition: all .2s ease;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+}
+
+.form-input:focus {
+  border-color: var(--pm-blue);
+  box-shadow: 0 0 0 3px rgba(0,135,202,0.1);
+}
+
+.form-phone {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .2s ease;
+}
+
+.form-phone:focus-within {
+  border-color: var(--pm-blue);
+  box-shadow: 0 0 0 3px rgba(0,135,202,0.1);
+}
+
+.phone-country {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  background: #f7fafc;
+  border-right: 1px solid #e2e8f0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pm-dark);
+}
+
+.country-flag {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.country-code {
+  font-size: 16px;
+}
+
+.country-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pm-blue);
+}
+
+.phone-input {
+  border: none;
+  border-radius: 0;
+}
+
+.phone-input:focus {
+  box-shadow: none;
+}
+
+.btn-continue {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--pm-blue);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: 0 4px 16px rgba(0,135,202,0.3);
+  align-self: flex-end;
+}
+
+.btn-continue:hover {
+  background: #006ba0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,135,202,0.4);
+}

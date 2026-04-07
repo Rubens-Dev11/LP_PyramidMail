@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merci — PyramidMail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pm-blue:  #0087CA;
+      --pm-light: #9ACEE8;
+      --pm-bg:    #EDF3F6;
+      --pm-dark:  #0a1628;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--pm-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Canvas pyramides ── */
+    #mercCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Carte centrale ── */
+    .merci-card {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-radius: 28px;
+      padding: 60px 56px 52px;
+      max-width: 540px;
+      width: 90%;
+      box-shadow: 0 24px 80px rgba(0,135,202,0.14);
+      border: 1px solid rgba(0,135,202,0.1);
+      text-align: center;
+      animation: slideUp .7s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Logo ── */
+    .merci-logo {
+      height: 48px;
+      width: auto;
+      margin-bottom: 32px;
+    }
+
+    /* ── Icône checkmark animée ── */
+    .check-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0087CA, #9ACEE8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn .5s .3s cubic-bezier(0.22,1,0.36,1) both;
+      position: relative;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .check-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,135,202,0.2);
+      animation: ringPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1);   opacity: 1; }
+      50%       { transform: scale(1.1); opacity: .4; }
+    }
+
+    .check-wrap svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    /* ── Texte ── */
+    .merci-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--pm-blue);
+      margin-bottom: 14px;
+    }
+
+    .merci-title {
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--pm-dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .merci-title span { color: var(--pm-blue); }
+
+    .merci-desc {
+      font-size: 15px;
+      color: #5a6a7e;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+
+    .merci-note {
+      font-size: 13px;
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    /* ── Badges avantages ── */
+    .merci-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,135,202,.08);
+      border: 1px solid rgba(0,135,202,.18);
+      color: var(--pm-blue);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .badge::before {
+      content: '✓';
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ── Bouton retour ── */
+    .btn-retour {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pm-blue);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 6px 24px rgba(0,135,202,0.35);
+    }
+
+    .btn-retour:hover {
+      background: #006ba0;
+      transform: translateY(-2px);
+    }
+
+    /* ── Compteur fondateurs ── */
+    .founders-bar {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid #f0f4f8;
+    }
+
+    .founders-label {
+      font-size: 12px;
+      color: #a0aec0;
+      margin-bottom: 10px;
+    }
+
+    .founders-track {
+      background: #f0f4f8;
+      border-radius: 100px;
+      height: 6px;
+      overflow: hidden;
+    }
+
+    .founders-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--pm-blue), var(--pm-light));
+      width: 0%;
+      animation: fillTrack 1.2s .6s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    @keyframes fillTrack {
+      to { width: 34%; }
+    }
+
+    .founders-count {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #a0aec0;
+    }
+
+    .founders-count strong {
+      color: var(--pm-blue);
+      font-weight: 700;
+    }
+
+    @media (max-width: 560px) {
+      .merci-card { padding: 40px 28px 36px; }
+      .merci-badges { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="mercCanvas"></canvas>
+
+<div class="merci-card">
+
+  <img
+    src="assets/images/Logo PyramidMail.svg"
+    alt="PyramidMail"
+    class="merci-logo"
+    onerror="this.style.display='none'"
+  />
+
+  <div class="check-wrap">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M5 12l5 5L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <p class="merci-eyebrow">Préinscription confirmée</p>
+
+  <h1 class="merci-title">Bienvenue dans<br>la famille <span>PyramidMail</span> !</h1>
+
+  <p class="merci-desc">
+    Vous faites partie des premiers à rejoindre la messagerie souveraine du Cameroun.
+    Vous bénéficiez du statut <strong>Fondateur</strong> avec des avantages exclusifs à vie.
+  </p>
+
+  <p class="merci-note">
+    Un email de confirmation vous a été envoyé. Pensez à vérifier vos spams si vous ne le trouvez pas.
+  </p>
+
+  <div class="merci-badges">
+    <span class="badge">Accès prioritaire</span>
+    <span class="badge">Statut Fondateur</span>
+    <span class="badge">Avantages à vie</span>
+  </div>
+
+  <a href="index.html" class="btn-retour">
+    ← Retour au site
+  </a>
+
+  <div class="founders-bar">
+    <p class="founders-label">Places Fondateur disponibles</p>
+    <div class="founders-track">
+      <div class="founders-fill"></div>
+    </div>
+    <div class="founders-count">
+      <span><strong>340</strong> inscrits</span>
+      <span>1 000 places au total</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ── Pyramides animées ── */
+(function () {
+  const canvas  = document.getElementById('mercCanvas');
+  const ctx     = canvas.getContext('2d');
+  const SIZE    = 130;
+  const COLS    = 9;
+  const ROWS    = 7;
+  const GAP     = 14;
+  let W, H, t   = 0;
+  const cells   = [];
+
+  function buildCells() {
+    cells.length = 0;
+    const cW = SIZE * 2 + GAP;
+    const cH = SIZE * 2 + GAP;
+    const ox = (W - COLS * cW) / 2 + SIZE;
+    const oy = (H - ROWS * cH * 0.72) / 2 + SIZE;
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        cells.push({
+          cx:        ox + c * cW + (r % 2 === 1 ? cW / 2 : 0),
+          cy:        oy + r * cH * 0.72,
+          phase:     Math.random() * Math.PI * 2,
+          speed:     0.25 + Math.random() * 0.45,
+          baseAlpha: 0.03 + Math.random() * 0.07,
+          pulseAmp:  0.03 + Math.random() * 0.055,
+          size:      SIZE * (0.7 + Math.random() * 0.45),
+        });
+      }
+    }
+  }
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    buildCells();
+  }
+
+  function drawDiamond(cx, cy, s, alpha, strokeA) {
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - s); ctx.lineTo(cx + s, cy);
+    ctx.lineTo(cx, cy + s); ctx.lineTo(cx - s, cy);
+    ctx.closePath();
+    const g = ctx.createRadialGradient(cx, cy - s * .3, 0, cx, cy, s);
+    g.addColorStop(0,   `rgba(154,206,232,${alpha * .55})`);
+    g.addColorStop(.5,  `rgba(0,135,202,${alpha * .28})`);
+    g.addColorStop(1,   `rgba(0,135,202,0)`);
+    ctx.fillStyle = g; ctx.fill();
+    ctx.strokeStyle = `rgba(0,135,202,${strokeA})`; ctx.lineWidth = 1.1; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy - s); ctx.lineTo(cx + s, cy);
+    ctx.strokeStyle = `rgba(154,206,232,${strokeA * .7})`; ctx.lineWidth = .5; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy - s); ctx.lineTo(cx - s, cy);
+    ctx.strokeStyle = `rgba(154,206,232,${strokeA * .3})`; ctx.lineWidth = .5; ctx.stroke();
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    t += 0.007;
+    cells.forEach(c => {
+      const w = Math.sin(t * c.speed + c.phase);
+      const a = c.baseAlpha + w * c.pulseAmp;
+      drawDiamond(c.cx, c.cy, c.size * (1 + w * .04), Math.max(0, a), Math.max(.015, a * 2.4));
+    });
+    requestAnimationFrame(animate);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  animate();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* ── Waitlist responsive ── */
+@media (max-width: 900px) {
+  .waitlist-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .waitlist-container {
+    padding: 0 24px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .waitlist-section {
+    padding: 60px 0;
+  }
+  .waitlist-form {
+    padding: 24px;
+  }
+  .waitlist-title {
+    font-size: 26px;
+  }
+  .btn-continue {
+    align-self: stretch;
+  }
+}
+
+/* ── Advantages responsive ── */
+@media (max-width: 900px) {
+  .advantages-layout { grid-template-columns: 1fr; }
+  .mockup-container  { height: 480px; }
+  .mockup-screen     { height: 440px; }
+  .adv-slide         { height: 440px; }
+}
+
+@media (max-width: 860px) {
+  .btn-secondary { display: none; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-drawer { display: flex; }
+
+  /* Navbar sticky en mobile */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  nav   { padding: 1rem 1.5rem; }
+}
+
+/* ── Features responsive ── */
+@media (max-width: 900px) {
+  .feature-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .feature-row--reverse {
+    direction: ltr;
+  }
+  .features-container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-section {
+    padding: 60px 0 80px;
+  }
+  .features-header {
+    margin-bottom: 48px;
+  }
+  .features-title {
+    font-size: 26px;
+  }
+  .feature-title {
+    font-size: 22px;
+  }
+  .feature-row {
+    margin-bottom: 48px;
+  }
+  .feature-divider {
+    margin: 40px 0;
+  }
+}
+
+/* ── FAQ responsive ── */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 60px 0 80px;
+  }
+  .faq-header {
+    margin-bottom: 40px;
+  }
+  .faq-title {
+    font-size: 26px;
+  }
+  .faq-container {
+    padding: 0 24px;
+  }
+  .faq-toggle {
+    padding: 20px 20px;
+    font-size: 15px;
+  }
+  .faq-answer {
+    padding: 0 20px 20px;
+  }
+}
+
+/* ── Footer responsive ── */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 60px 0 80px;
+  }
+  .footer-container {
+    padding: 0 24px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-brand {
+    grid-column: span 1;
+  }
+  .footer-3d-icon {
+    position: static;
+    width: 40px;
+    height: 40px;
+    margin-top: 24px;
+  }
+}

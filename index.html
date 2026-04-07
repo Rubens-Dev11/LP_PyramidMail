@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="assets/images/Icon-PyramidMail-noir.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PyramidMail | Messagerie</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Pyramid Mail — La première messagerie professionnelle 100 % camerounaise. Sécurisée, souveraine et optimisée pour les réalités africaines."/>
+  <meta name="keywords" content="messagerie cameroun, email professionnel afrique, pyramid mail, souveraineté numérique, messagerie sécurisée"/>
+  <meta name="author" content="PyramidMail"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Pyramid Mail — La messagerie professionnelle made in Cameroun"/>
+  <meta property="og:description" content="Messagerie sécurisée, souveraine et optimisée pour les réalités africaines. Vos données restent au Cameroun."/>
+  <meta property="og:image" content="assets/images/dashboard.png"/>
+  <meta property="og:url" content="https://rubens-dev11.github.io/Landing_page_PyramidMail/"/>
+  <meta property="og:locale" content="fr_CM"/>
+  <meta property="og:site_name" content="PyramidMail"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Pyramid Mail — La messagerie made in Cameroun"/>
+  <meta name="twitter:description" content="Messagerie professionnelle 100 % camerounaise. Sécurisée, souveraine, optimisée pour l'Afrique."/>
+  <meta name="twitter:image" content="assets/images/dashboard.png"/>
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="assets/images/Icon-PyramidMail-noir.svg"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500;600&display=swap"/>
+  <link rel="stylesheet" href="assets/css/base.css"/>
+  <link rel="stylesheet" href="assets/css/navbar.css"/>
+  <link rel="stylesheet" href="assets/css/hero.css"/>
+  <link rel="stylesheet" href="assets/css/advantages.css"/>
+  <link rel="stylesheet" href="assets/css/waitlist.css"/>
+  <link rel="stylesheet" href="assets/css/faq.css"/>
+  <link rel="stylesheet" href="assets/css/footer.css"/>
+  <link rel="stylesheet" href="assets/css/features.css"/>
+  <link rel="stylesheet" href="assets/css/responsive.css"/>
+</head>
+<body>
+
+<!-- ══ NAV LINKS (fixe) ══ -->
+<div class="nav-links">
+  <a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a>
+  <a href="#avantages" data-fr="À propos" data-en="About">À propos</a>
+  <a href="#faq" data-fr="FAQ" data-en="FAQ">FAQ</a>
+  <a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a>
+</div>
+
+<!-- ══ NAVBAR (défile) ══ -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="assets/images/Logo PyramidMail.svg" alt="PyramidMail Logo"/>
+  </a>
+  <a href="#waitlist" class="btn-secondary" data-fr="Rejoindre" data-en="Join">Rejoindre</a>
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#accueil"         onclick="closeDrawer()" data-fr="Accueil" data-en="Home">Accueil</a>
+    <a href="#avantages"       onclick="closeDrawer()" data-fr="À propos" data-en="About">À propos</a>
+    <a href="#fonctionnalites" onclick="closeDrawer()" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a>
+    <a href="#faq"             onclick="closeDrawer()" data-fr="FAQ" data-en="FAQ">FAQ</a>
+    <div class="drawer-lang-toggle">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="#waitlist" onclick="closeDrawer()" class="drawer-cta" data-fr="Rejoindre" data-en="Join">Rejoindre</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero-section" id="accueil">
+  <canvas id="heroPyramidCanvas"></canvas>
+
+  <div class="hero">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="title-row">
+        <div class="logo-wrap">
+          <div class="logo-halo"></div>
+          <div class="logo-inner">
+            <img src="assets/images/Icon-PyramidMail-noir.svg" alt="PyramidMail 3D Icon" class="footer-3d-icon"/>
+            <div class="logo-shine"></div>
+          </div>
+        </div>
+        <h1 class="hero-title" id="heroTitle"><span class="tw-cursor"></span></h1>
+      </div>
+
+      <p class="hero-sub" id="heroSub"><span class="tw-cursor2"></span></p>
+      <a href="#waitlist" class="btn-join" data-fr="Rejoindre" data-en="Join">Rejoindre</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="carousel-outer">
+      <div class="carousel" id="heroCarousel">
+        <div class="hero-progress-bar" id="heroProgressBar"></div>
+        <div class="slide active"><img src="assets/images/dashboard.png" alt="Tableau de bord"/></div>
+        <div class="slide"><img src="assets/images/message.png" alt="Messagerie"/></div>
+        <div class="slide"><img src="assets/images/Profile.png" alt="Profil"/></div>
+        <button class="arrow arrow-prev" onclick="heroChangeSlide(-1)">&#8592;</button>
+        <button class="arrow arrow-next" onclick="heroChangeSlide(1)">&#8594;</button>
+      </div>
+      <div class="hero-dots">
+        <button class="hero-dot active" onclick="heroGoTo(0)"></button>
+        <button class="hero-dot" onclick="heroGoTo(1)"></button>
+        <button class="hero-dot" onclick="heroGoTo(2)"></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- thin divider -->
+<div class="section-divider"></div>
+
+<!-- ══ ADVANTAGES ══ -->
+<section class="advantages-section" id="avantages">
+  <canvas id="advantageCanvas"></canvas>
+
+  <div class="adv-container">
+
+    <h2 class="section-title-adv">
+      <span data-fr="La messagerie conçue pour " data-en="The messaging app built for ">La messagerie conçue pour </span><span data-fr="l'Afrique" data-en="Africa">l'Afrique</span>
+    </h2>
+
+    <p class="section-subtitle-adv" data-fr="Une solution 100 % camerounaise, souveraine et optimisée pour les réalités africaines — sans compromis sur la sécurité." data-en="A 100% Cameroonian solution, sovereign and optimized for African realities — without compromising on security.">
+      Une solution 100 % camerounaise, souveraine et optimisée pour les réalités africaines — sans compromis sur la sécurité.
+    </p>
+
+    <div class="advantages-layout">
+
+      <!-- Feature list -->
+      <div class="features-list" id="advFeatureList">
+
+        <div class="feature-item active" data-adv="0">
+          <div class="adv-progress"></div>
+          <div class="feature-num" data-fr="01 — Souveraineté" data-en="01 — Sovereignty">01 — Souveraineté</div>
+          <div class="feature-title-adv" data-fr="Données 100 % sur le territoire camerounais" data-en="Data 100% on Cameroonian territory">Données 100 % sur le territoire camerounais</div>
+          <div class="feature-desc" data-fr="Vos emails sont stockés dans un data center situé physiquement au Cameroun. Aucun gouvernement étranger, aucune entreprise américaine ou européenne ne peut accéder à vos données. Vous restez maître chez vous — comme si vous gardiez vos documents dans un coffre-fort local." data-en="Your emails are stored in a data center physically located in Cameroon. No foreign government or company can access your data. You stay in control — like keeping your documents in a local safe rather than entrusting them to someone abroad.">Vos emails sont stockés dans un data center situé physiquement au Cameroun. Aucun gouvernement étranger, aucune entreprise américaine ou européenne ne peut accéder à vos données. Vous restez maître chez vous — comme si vous gardiez vos documents dans un coffre-fort local.</div>
+        </div>
+
+        <div class="feature-item" data-adv="1">
+          <div class="adv-progress"></div>
+          <div class="feature-num" data-fr="02 — Sécurité" data-en="02 — Security">02 — Sécurité</div>
+          <div class="feature-title-adv" data-fr="Vos secrets restent les vôtres. Pour toujours." data-en="Your secrets stay yours. Forever.">Vos secrets restent les vôtres. Pour toujours.</div>
+          <div class="feature-desc" data-fr="Chaque message est verrouillé numériquement avant de quitter votre appareil — seul votre destinataire possède la clé pour le lire. Une double vérification à la connexion (code reçu par SMS) garantit que même si quelqu'un vole votre mot de passe, il ne pourra jamais accéder à votre boîte mail." data-en="Every message is digitally locked before leaving your device — only your recipient holds the key to read it. A double login verification (code sent by SMS) ensures that even if someone steals your password, they can never access your inbox.">Chaque message est verrouillé numériquement avant de quitter votre appareil — seul votre destinataire possède la clé pour le lire. Une double vérification à la connexion (code reçu par SMS) garantit que même si quelqu'un vole votre mot de passe, il ne pourra jamais accéder à votre boîte mail.</div>
+        </div>
+
+        <div class="feature-item" data-adv="2">
+          <div class="adv-progress"></div>
+          <div class="feature-num" data-fr="03 — Performance" data-en="03 — Performance">03 — Performance</div>
+          <div class="feature-title-adv" data-fr="Optimisée pour les réseaux africains" data-en="Optimized for African networks">Optimisée pour les réseaux africains</div>
+          <div class="feature-desc" data-fr="Pyramid Mail fonctionne même quand votre connexion est lente ou instable. Rédigez vos emails sans internet — ils s'enverront automatiquement dès que le réseau revient. Idéal pour les zones à faible couverture ou lors de coupures imprévues." data-en="Pyramid Mail works even when your connection is slow or unstable. Write your emails without internet — they will be sent automatically as soon as the network comes back. Ideal for low-coverage areas or unexpected outages.">Pyramid Mail fonctionne même quand votre connexion est lente ou instable. Rédigez vos emails sans internet — ils s'enverront automatiquement dès que le réseau revient. Idéal pour les zones à faible couverture ou lors de coupures imprévues.</div>
+        </div>
+
+      </div>
+
+      <!-- Mockup carousel -->
+      <div class="mockup-container">
+        <div class="mockup-blob"></div>
+
+        <div class="mockup-shell">
+          <div class="mockup-screen">
+            <div class="slide-track" id="advSlideTrack">
+
+              <!-- SLIDE 1 -->
+              <div class="adv-slide adv-slide-1">
+                <div class="s1-header">
+                  <div class="s1-logo">PYRAMID<span>Mail</span></div>
+                  <div class="s1-status">Connecté</div>
+                </div>
+                <div class="s1-hero">
+                  <div class="shield-wrap">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="#0087CA" opacity=".3"/>
+                      <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#9ACEE8" stroke-width="1.5" fill="none"/>
+                      <path d="M9 12l2 2 4-4" stroke="#9ACEE8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="s1-label" data-fr="Vos données restent au Cameroun" data-en="Your data stays in Cameroon">Vos données restent au Cameroun</div>
+                  <div class="s1-sub" data-fr="Aucun accès étranger possible — stockage local garanti" data-en="No foreign access possible — local storage guaranteed">Aucun accès étranger possible — stockage local garanti</div>
+                </div>
+                <div class="server-bar">
+                  <div class="server-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="4" width="18" height="5" rx="2" stroke="#9ACEE8" stroke-width="1.5"/>
+                      <rect x="3" y="12" width="18" height="5" rx="2" stroke="#9ACEE8" stroke-width="1.5"/>
+                      <circle cx="7" cy="6.5" r="1" fill="#4ade80"/>
+                      <circle cx="7" cy="14.5" r="1" fill="#4ade80"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="server-name" data-fr="Data Center national" data-en="National Data Center">Data Center national</div>
+                    <div class="server-loc">Yaoundé, Cameroun 🇨🇲</div>
+                  </div>
+                  <div class="server-status" data-fr="En ligne" data-en="Online">En ligne</div>
+                </div>
+              </div>
+
+              <!-- SLIDE 2 -->
+              <div class="adv-slide adv-slide-2">
+                <div class="s2-top">
+                  <div class="s2-tag">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" fill="#0087CA"/></svg>
+                    <span data-fr="Chiffrement actif" data-en="Active encryption">Chiffrement actif</span>
+                  </div>
+                  <div class="s2-title" data-fr="Verrouillage bout-en-bout" data-en="End-to-end lock">Verrouillage bout-en-bout</div>
+                  <div class="lock-row">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="#0087CA" stroke-width="1.5"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#0087CA" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <span data-fr="Message verrouillé · Seul le destinataire peut lire" data-en="Locked message · Only the recipient can read">Message verrouillé · Seul le destinataire peut lire</span>
+                  </div>
+                </div>
+                <div class="keys-grid">
+                  <div class="key-card">
+                    <div class="kc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" stroke="#0087CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="kc-label" data-fr="Clé publique" data-en="Public key">Clé publique</div>
+                    <div class="kc-val">RSA-4096</div>
+                  </div>
+                  <div class="key-card">
+                    <div class="kc-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="#0087CA" stroke-width="1.5"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#0087CA" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="#0087CA"/></svg></div>
+                    <div class="kc-label" data-fr="Clé privée" data-en="Private key">Clé privée</div>
+                    <div class="kc-val" data-fr="Locale uniquement" data-en="Local only">Locale uniquement</div>
+                  </div>
+                  <div class="key-card">
+                    <div class="kc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#0087CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="kc-label" data-fr="Certifié" data-en="Certified">Certifié</div>
+                    <div class="kc-val" data-fr="Conformité locale" data-en="Local compliance">Conformité locale</div>
+                  </div>
+                  <div class="key-card">
+                    <div class="kc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke="#0087CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="kc-label" data-fr="2FA activé" data-en="2FA enabled">2FA activé</div>
+                    <div class="kc-val">SMS + Code</div>
+                  </div>
+                </div>
+                <div class="auth-bar">
+                  <div class="auth-dots">
+                    <div class="auth-dot"></div>
+                    <div class="auth-dot"></div>
+                    <div class="auth-dot"></div>
+                    <div class="auth-dot empty"></div>
+                    <div class="auth-dot empty"></div>
+                    <div class="auth-dot empty"></div>
+                  </div>
+                  <div class="auth-label" data-fr="Entrez votre code de vérification..." data-en="Enter your verification code...">Entrez votre code de vérification...</div>
+                </div>
+              </div>
+
+              <!-- SLIDE 3 -->
+              <div class="adv-slide adv-slide-3">
+                <div class="s3-header">
+                  <div class="s3-title" data-fr="Performance réseau" data-en="Network performance">Performance réseau</div>
+                  <div class="perf-badge" data-fr="Optimisé pour l'Afrique" data-en="Optimized for Africa">Optimisé pour l'Afrique</div>
+                </div>
+                <div class="speed-bars">
+                  <div class="speed-row">
+                    <div class="speed-label" data-fr="Chargement" data-en="Loading">Chargement</div>
+                    <div class="speed-track"><div class="speed-fill" style="width:92%"></div></div>
+                    <div class="speed-val">92%</div>
+                  </div>
+                  <div class="speed-row">
+                    <div class="speed-label" data-fr="Compression" data-en="Compression">Compression</div>
+                    <div class="speed-track"><div class="speed-fill" style="width:85%"></div></div>
+                    <div class="speed-val">85%</div>
+                  </div>
+                  <div class="speed-row">
+                    <div class="speed-label" data-fr="Bas débit" data-en="Low bandwidth">Bas débit</div>
+                    <div class="speed-track"><div class="speed-fill" style="width:78%"></div></div>
+                    <div class="speed-val">78%</div>
+                  </div>
+                </div>
+                <div class="offline-banner">
+                  <div class="offline-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M18.364 5.636a9 9 0 010 12.728M15.536 8.464a5 5 0 010 7.072M12 11a1 1 0 011 1v.01a1 1 0 01-2 0V12a1 1 0 011-1zM2 2l20 20" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <div class="ot-title" data-fr="Mode hors-ligne actif" data-en="Offline mode active">Mode hors-ligne actif</div>
+                    <div class="ot-sub" data-fr="3 messages en attente — envoi automatique à la reconnexion" data-en="3 messages pending — automatic send on reconnection">3 messages en attente — envoi automatique à la reconnexion</div>
+                    <div class="sync-chip" data-fr="Synchronisation automatique" data-en="Automatic sync">Synchronisation automatique</div>
+                  </div>
+                </div>
+                <div class="mail-preview-list">
+                  <div class="mail-row">
+                    <div class="mail-avatar" style="background:#0087CA">A</div>
+                    <div class="mail-info">
+                      <div class="mail-sender" data-fr="Ministère des Postes" data-en="Ministry of Posts">Ministère des Postes</div>
+                      <div class="mail-snippet" data-fr="Réponse officielle — dossier en cours..." data-en="Official response — file in progress...">Réponse officielle — dossier en cours...</div>
+                    </div>
+                    <div class="mail-time">09:14</div>
+                  </div>
+                  <div class="mail-row">
+                    <div class="mail-avatar" style="background:#9ACEE8;color:#0a1628">U</div>
+                    <div class="mail-info">
+                      <div class="mail-sender" data-fr="Université de Yaoundé" data-en="University of Yaoundé">Université de Yaoundé</div>
+                      <div class="mail-snippet" data-fr="500 comptes étudiants — déploiement confirmé" data-en="500 student accounts — deployment confirmed">500 comptes étudiants — déploiement confirmé</div>
+                    </div>
+                    <div class="mail-time">08:47</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="adv-dots" id="advDots">
+          <div class="adv-dot active"></div>
+          <div class="adv-dot"></div>
+          <div class="adv-dot"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION FONCTIONNALITÉS ===== -->
+<section id="fonctionnalites" class="features-section">
+  <canvas id="featuresCanvas"></canvas>
+  <div class="features-container">
+
+    <div class="features-header">
+      <span class="features-label" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</span>
+      <h2 class="features-title" data-fr="Tout ce dont vous avez besoin dans une seule plateforme" data-en="Everything you need in a single platform">Tout ce dont vous avez besoin dans une seule plateforme</h2>
+      <p class="features-subtitle" data-fr="Pyramid Mail combine messagerie sécurisée, outils de productivité et gestion d'équipe — 100% camerounais." data-en="Pyramid Mail combines secure messaging, productivity tools and team management — 100% Cameroonian.">Pyramid Mail combine messagerie sécurisée, outils de productivité et gestion d'équipe — 100% camerounais.</p>
+    </div>
+
+    <!-- Bloc 1 : Messagerie -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="assets/images/fon1.png" alt="Interface Messagerie Pyramid Mail" />
+      </div>
+      <div class="feature-text">
+        <span class="feature-num" data-fr="01 — Messagerie" data-en="01 — Messaging">01 — Messagerie</span>
+        <h3 class="feature-title" data-fr="Une messagerie sécurisée, pensée pour l'Afrique" data-en="Secure messaging, built for Africa">Une messagerie sécurisée,<br>pensée pour l'Afrique</h3>
+        <p class="feature-desc" data-fr="Envoyez et recevez vos emails avec un chiffrement end-to-end OpenPGP. Vos données restent au Cameroun, sur les serveurs CAMTEL." data-en="Send and receive your emails with end-to-end OpenPGP encryption. Your data stays in Cameroon, on CAMTEL servers.">Envoyez et recevez vos emails avec un chiffrement end-to-end OpenPGP. Vos données restent au Cameroun, sur les serveurs CAMTEL.</p>
+        <div class="feature-pills">
+          <span class="feature-pill" data-fr="Chiffrement end-to-end" data-en="End-to-end encryption">Chiffrement end-to-end</span>
+          <span class="feature-pill" data-fr="Antispam intégré" data-en="Built-in antispam">Antispam intégré</span>
+          <span class="feature-pill" data-fr="Pièces jointes avancées" data-en="Advanced attachments">Pièces jointes avancées</span>
+          <span class="feature-pill" data-fr="Authentification 2FA" data-en="2FA authentication">Authentification 2FA</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="feature-divider" />
+
+    <!-- Bloc 2 : Productivité -->
+    <div class="feature-row feature-row--reverse">
+      <div class="feature-img">
+        <img src="assets/images/fon2.png" alt="Interface Productivité Pyramid Mail" />
+      </div>
+      <div class="feature-text">
+        <span class="feature-num" data-fr="02 — Productivité" data-en="02 — Productivity">02 — Productivité</span>
+        <h3 class="feature-title" data-fr="Organisez votre temps, même sans connexion" data-en="Organize your time, even without connection">Organisez votre temps,<br>même sans connexion</h3>
+        <p class="feature-desc" data-fr="Calendrier intégré, tâches, rappels et mode hors-ligne. Restez productif partout au Cameroun, quelle que soit la qualité du réseau." data-en="Integrated calendar, tasks, reminders and offline mode. Stay productive everywhere in Cameroon, whatever the network quality.">Calendrier intégré, tâches, rappels et mode hors-ligne. Restez productif partout au Cameroun, quelle que soit la qualité du réseau.</p>
+        <div class="feature-pills">
+          <span class="feature-pill" data-fr="Calendrier CalDAV" data-en="CalDAV Calendar">Calendrier CalDAV</span>
+          <span class="feature-pill" data-fr="Mode hors-ligne (PWA)" data-en="Offline mode (PWA)">Mode hors-ligne (PWA)</span>
+          <span class="feature-pill" data-fr="Tâches &amp; rappels" data-en="Tasks &amp; reminders">Tâches &amp; rappels</span>
+          <span class="feature-pill" data-fr="Synchro différée" data-en="Deferred sync">Synchro différée</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="feature-divider" />
+
+    <!-- Bloc 3 : Administration -->
+    <div class="feature-row">
+      <div class="feature-img">
+        <img src="assets/images/fon3.png" alt="Interface Administration Pyramid Mail" />
+      </div>
+      <div class="feature-text">
+        <span class="feature-num" data-fr="03 — Administration &amp; Intégrations" data-en="03 — Administration &amp; Integrations">03 — Administration & Intégrations</span>
+        <h3 class="feature-title" data-fr="Gérez votre organisation, connectez vos services" data-en="Manage your organization, connect your services">Gérez votre organisation,<br>connectez vos services</h3>
+        <p class="feature-desc" data-fr="Tableau de bord admin puissant, gestion des équipes et intégrations natives avec les services camerounais : MTN MoMo, Orange Money et vos APIs." data-en="Powerful admin dashboard, team management and native integrations with Cameroonian services: MTN MoMo, Orange Money and your APIs.">Tableau de bord admin puissant, gestion des équipes et intégrations natives avec les services camerounais : MTN MoMo, Orange Money et vos APIs.</p>
+        <div class="feature-pills">
+          <span class="feature-pill" data-fr="Gestion d'équipe" data-en="Team management">Gestion d'équipe</span>
+          <span class="feature-pill" data-fr="Dashboard &amp; stats" data-en="Dashboard &amp; stats">Dashboard &amp; stats</span>
+          <span class="feature-pill" data-fr="MTN MoMo &amp; Orange Money" data-en="MTN MoMo &amp; Orange Money">MTN MoMo &amp; Orange Money</span>
+          <span class="feature-pill" data-fr="API ouverte" data-en="Open API">API ouverte</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== FIN SECTION FONCTIONNALITÉS ===== -->
+
+<!-- thin divider -->
+<div class="section-divider"></div>
+
+<!-- ══ WAITLIST / CTA ══ -->
+<section class="waitlist-section" id="waitlist">
+  <canvas id="waitlistCanvas"></canvas>
+  <div class="waitlist-container">
+
+    <div class="waitlist-content">
+      <div class="waitlist-text">
+        <h2 class="waitlist-title" data-fr="Ouverture de PyramidMail très prochainement" data-en="PyramidMail opening very soon">Ouverture de PyramidMail très prochainement</h2>
+        <p class="waitlist-subtitle" data-fr="Enregistrez vous et profitez des avantages exclusifs" data-en="Register now and enjoy exclusive benefits">Enregistrez vous et profitez des avantages exclusifs</p>
+      </div>
+
+      <form class="waitlist-form" onsubmit="event.preventDefault();">
+        <div class="form-row">
+          <input type="text" class="form-input" data-placeholder-fr="Prénom*" data-placeholder-en="First name*" placeholder="Prénom*" required />
+          <input type="text" class="form-input" data-placeholder-fr="Nom*" data-placeholder-en="Last name*" placeholder="Nom*" required />
+        </div>
+        <div class="form-row">
+          <input type="email" class="form-input" data-placeholder-fr="Adresse e-mail *" data-placeholder-en="Professional email address *" placeholder="Adresse e-mail *" required />
+          <div class="form-phone">
+            <div class="phone-country">
+              <img src="assets/images/cameroun.png" alt="Cameroun" class="country-flag" />
+            </div>
+            <input type="tel" class="form-input phone-input" placeholder="+237 6 99 34 56 78" value="+237 " required />
+          </div>
+        </div>
+        <button type="submit" class="btn-continue" data-fr="Continuer" data-en="Continue">Continuer</button>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- thin divider -->
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════
+     FAQ (ACCORDÉON)
+═══════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <canvas id="faqPyramidCanvas"></canvas>
+  <div class="faq-container" style="position:relative;z-index:1;">
+
+    <div class="faq-header">
+      <h2 class="faq-title" data-fr="Questions Fréquentes" data-en="Frequently Asked Questions">Questions Fréquentes</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <!-- Q1 -->
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-question" data-fr="Quand PyramidMail sera-t-il disponible ?" data-en="When will PyramidMail be available?">Quand PyramidMail sera-t-il disponible ?</span>
+          <span class="faq-icon">&#9662;</span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer" data-fr="La version beta est prévue pour le 30 Mai 2026. Les fondateurs recevront un accès prioritaire." data-en="The beta version is expected on May 30, 2026. Founders will receive priority access.">La version beta est prévue pour le 30 Mai 2026. Les fondateurs recevront un accès prioritaire.</p>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-question" data-fr="Pourquoi m'inscrire maintenant ?" data-en="Why should I sign up now?">Pourquoi m'inscrire maintenant ?</span>
+          <span class="faq-icon">&#9662;</span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer" data-fr="Les 1 000 premiers inscrits bénéficient du statut Fondateur avec avantages. Après, ces avantages ne seront plus disponibles." data-en="The first 1,000 sign-ups get Founder status with exclusive benefits. After that, these benefits will no longer be available.">Les 1 000 premiers inscrits bénéficient du statut Fondateur avec avantages. Après, ces avantages ne seront plus disponibles.</p>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-question" data-fr="PyramidMail est-il gratuit ?" data-en="Is PyramidMail free?">PyramidMail est-il gratuit ?</span>
+          <span class="faq-icon">&#9662;</span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer" data-fr="PyramidMail proposera une version gratuite généreuse et des plans premium. Les tarifs exacts seront annoncés à la sortie beta." data-en="PyramidMail will offer a generous free version and premium plans. Exact pricing will be announced at beta launch.">PyramidMail proposera une version gratuite généreuse et des plans premium. Les tarifs exacts seront annoncés à la sortie beta.</p>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item">
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-question" data-fr="Mes données sont-elles vraiment en Afrique ?" data-en="Is my data really in Africa?">Mes données sont-elles vraiment en Afrique ?</span>
+          <span class="faq-icon">&#9662;</span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer" data-fr="Oui. PyramidMail utilise des datacenters situés en Afrique centrale. Aucune donnée ne quitte le continent." data-en="Yes. PyramidMail uses data centers located in Central Africa. No data leaves the continent.">Oui. PyramidMail utilise des datacenters situés en Afrique centrale. Aucune donnée ne quitte le continent.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     FOOTER
+═══════════════════════════════ -->
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <!-- Col 1: Marque -->
+      <div class="footer-col footer-brand">
+        <img id="logo-footer" src="assets/images/Logo-PyramidMail-blanc.svg" alt="PyramidMail Logo"/>
+        <p class="footer-tagline" data-fr="La messagerie souveraine d'Afrique." data-en="Africa's sovereign email platform.">La messagerie souveraine d'Afrique.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Link">
+            <span class="material-symbols-outlined">link</span>
+          </a>
+          <a href="#" class="social-link" aria-label="Share">
+            <span class="material-symbols-outlined">share</span>
+          </a>
+          <a href="#" class="social-link" aria-label="Public">
+            <span class="material-symbols-outlined">public</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation -->
+      <div class="footer-col">
+        <h4 class="footer-heading" data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <div class="footer-nav-list">
+          <a class="footer-link" href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a>
+          <a class="footer-link" href="#avantages" data-fr="À propos" data-en="About">À propos</a>
+          <a class="footer-link" href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a>
+          <a class="footer-link" href="#faq" data-fr="FAQ" data-en="FAQ">FAQ</a>
+          <a class="footer-link" href="#waitlist" data-fr="Waitlist" data-en="Waitlist">Waitlist</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Légal -->
+      <div class="footer-col">
+        <h4 class="footer-heading" data-fr="Légal" data-en="Legal">Légal</h4>
+        <div class="footer-nav-list">
+          <a class="footer-link" href="#" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+          <a class="footer-link" href="#" data-fr="Conditions" data-en="Terms">Conditions</a>
+          <a class="footer-link" href="#" data-fr="Cookies" data-en="Cookies">Cookies</a>
+        </div>
+      </div>
+
+      <!-- Col 4: Contact -->
+      <div class="footer-col">
+        <h4 class="footer-heading" data-fr="Contact" data-en="Contact">Contact</h4>
+        <p class="footer-contact">hello@pyramidmail.africa</p>
+        <p class="footer-contact">Douala, Cameroun</p>
+        <p class="footer-baseline" data-fr="© 2026 PyramidMail. Tous droits réservés Pyramid Tech Group." data-en="© 2026 PyramidMail. All rights reserved by Pyramid Tech Group.">© 2026 PyramidMail. <br>All rights reserved by <br> Pyramid Tech Group.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <img src="assets/images/Icon-PyramidMail.svg" alt="PyramidMail 3D Icon" class="footer-3d-icon"/>
+</footer>
+
+<!-- Floating "Rejoindre" button for mobile -->
+<a href="#waitlist" class="btn-join-fixed" data-fr="Rejoindre" data-en="Join">Rejoindre</a>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script src="assets/js/pyramid-bg.js" defer></script>
+<script src="assets/js/navbar.js" defer></script>
+<script src="assets/js/hero.js" defer></script>
+<script src="assets/js/advantages.js" defer></script>
+<script src="assets/js/waitlist.js" defer></script>
+<script src="assets/js/faq.js" defer></script>
+<script src="assets/js/scrolltop.js" defer></script>
+<script src="assets/js/lang.js" defer></script>
+
+<!-- Scroll-to-top button -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  ↑
+</button>
+
+</body>
+</html>
